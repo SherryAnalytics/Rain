@@ -1,3 +1,11 @@
+# SherryAnalytics / Rain
+
+A personal repo that contains my machine-learning coursework, a data diary, and side projects.
+
+## Repo layout
+
+"""
+
 SherryAnalytics/Rain/
 ├── README.md
 ├── ml/                     # My machine learning class materials 
@@ -21,4 +29,4 @@ SherryAnalytics/Rain/
 │   ├── clustering-experiments/  # experients with clustering
 │   ├── images/                  # Screenshots or diagrams
 
-
+"""
