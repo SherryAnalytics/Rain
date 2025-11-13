@@ -2,7 +2,7 @@
 
 A personal repo that contains my machine-learning coursework, a data diary, and side projects.
 
-## Repo layout for SherryAnalytics/Rain/
+## Repo layout
 
 - **`ml/`** — Course materials for my machine learning class: homework, project code, and class notes.
 - **`diary/`** — Casual, chronological notes and writeups about things I learn and reflect day-to-day.
