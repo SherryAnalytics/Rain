@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI模型蒸馏（Distillation）是怎么回事 — SherryAnalytics</title>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="AI模型蒸馏（Distillation）是怎么回事" />
+  <meta property="og:description" content="用大白话讲清楚 AI 模型蒸馏是什么、为什么 DeepSeek、Moonshot、MiniMax 会被指控用假账号&quot;偷师&quot;，以及这里面贵的到底是什么。" />
+  <meta property="og:url" content="https://sherryanalytics.github.io/rain/garden-of-thoughts/2026-07-28-AI-Model-Distillation-Explained-zh.html" />
+  <meta property="og:image" content="https://sherryanalytics.github.io/rain/og/default.png?v=2" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="627" />
+  <meta name="author" content="Sherry Li" />
+  <meta property="article:author" content="Sherry Li" />
+  <meta property="article:published_time" content="2026-07-28T00:00:00Z" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Source Sans 3', sans-serif; max-width: 720px; margin: 60px auto; padding: 0 24px; color: #222; }
+    h1, h2, h3 { line-height: 1.3; }
+    h1 { font-size: 1.9rem; border-bottom: 2px solid #222; padding-bottom: 12px; }
+    p { line-height: 1.7; color: #333; }
+    a { color: #0066cc; }
+    a:hover { color: #004499; }
+    code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+    pre { background: #f4f4f4; padding: 16px; border-radius: 6px; overflow-x: auto; }
+    pre code { background: none; padding: 0; }
+    blockquote { border-left: 3px solid #ccc; margin: 0; padding: 0 16px; color: #555; }
+    .back { font-size: 0.9rem; margin-bottom: 32px; }
+    .back a { text-decoration: none; }
+    .meta { font-size: 0.85rem; color: #888; margin-top: 6px; margin-bottom: 32px; }
+    .tag { background: #eee; border-radius: 3px; padding: 2px 8px; margin-right: 4px; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="back"><a href="index.html">← Garden of Thoughts</a></div>
+  
+  <div class="meta">
+    <span>July 28, 2026</span>
+    <span class="tag">ai</span> <span class="tag">distillation</span> <span class="tag">llm</span> <span class="tag">anthropic</span> <span class="tag">deepseek</span>
+  </div>
+  <p><em>Garden of Thoughts | SherryAnalytics | 2026年7月28日</em></p>
+<hr />
+<h1>AI模型蒸馏（Distillation）是怎么回事</h1>
+<p><strong>副标题：</strong> 老师很贵，学生很便宜。</p>
+<p>有朋友问 AI 模型蒸馏是怎么回事，我试着解释一下。</p>
+<h2>老师和学生</h2>
+<p>蒸馏的做法说穿了很朴素：找一个已经很强的大模型当"老师"，海量提问，把回答——尤其是推理过程（chain-of-thought）——收集下来，筛掉错的，拿这批数据去微调自己的"学生"模型。学生从没摸过老师的权重（weights），它只是从前门用 HTTPS，一遍遍地问问题、抄答案。</p>
+<p>这不是纸上谈兵。今年二月，Anthropic 披露了一起规模不小的案例：约 24,000 个伪造账号，向 Claude 发起超过 1,600 万次对话，横跨数周到数月，矛头直指 DeepSeek、Moonshot、MiniMax 三家。Google 也在同期报告过针对 Gemini 的十万级 prompt 采集，试图"复制"它的推理逻辑。</p>
+<h2>贵的是"当老师"，便宜的是"当学生"</h2>
+<p>老师那身本事，是拿钱和时间堆出来的：多年的 RLHF（人类偏好标注）、RLVR（可验证奖励强化学习）、专家标注、沙箱环境、海量 rollout 算力——每一分投入都实打实。但这些投入最终只能以"文字"的形式从 API 里流出来。学生不需要重走这条路，只要把答案收好，微调一下，几年的功夫就搬回了家。</p>
+<p>这就是为什么蒸馏总让原创模型的公司如鲠在喉：护城河烧的是真金白银，抄的却只是电费和几台服务器的时间。</p>
+<p><strong>结语：</strong> 蒸馏本身是个正经的机器学习技术，问题从来不出在"蒸馏"两个字上，而出在没打招呼就去蒸馏别人。</p>
+<hr />
+<p><em>本文由 Claude 协助撰写与润色。</em></p>
+<h2>延伸阅读</h2>
+<ul>
+<li><a href="https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks">Anthropic：Detecting and preventing distillation attacks</a></li>
+<li><a href="https://www.nbcnews.com/tech/security/google-gemini-hit-100000-prompts-cloning-attempt-rcna258657">NBC News：Google says attackers used 100,000+ prompts to try to clone AI chatbot Gemini</a></li>
+<li><a href="https://arxiv.org/abs/1503.02531">Hinton, Vinyals &amp; Dean, Distilling the Knowledge in a Neural Network (2015)</a></li>
+</ul>
+</body>
+</html>

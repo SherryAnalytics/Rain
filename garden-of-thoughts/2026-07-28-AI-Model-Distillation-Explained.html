@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Cheap Way to Build an AI: Ask Someone Else's Model a Few Million Questions — SherryAnalytics</title>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Cheap Way to Build an AI: Ask Someone Else&#x27;s Model a Few Million Questions" />
+  <meta property="og:description" content="A plain-English explainer on AI model distillation — what it actually is, why DeepSeek, Moonshot, and MiniMax got called out for it, and what part of the process is actually expensive." />
+  <meta property="og:url" content="https://sherryanalytics.github.io/rain/garden-of-thoughts/2026-07-28-AI-Model-Distillation-Explained.html" />
+  <meta property="og:image" content="https://sherryanalytics.github.io/rain/og/default.png?v=2" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="627" />
+  <meta name="author" content="Sherry Li" />
+  <meta property="article:author" content="Sherry Li" />
+  <meta property="article:published_time" content="2026-07-28T00:00:00Z" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Source Sans 3', sans-serif; max-width: 720px; margin: 60px auto; padding: 0 24px; color: #222; }
+    h1, h2, h3 { line-height: 1.3; }
+    h1 { font-size: 1.9rem; border-bottom: 2px solid #222; padding-bottom: 12px; }
+    p { line-height: 1.7; color: #333; }
+    a { color: #0066cc; }
+    a:hover { color: #004499; }
+    code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+    pre { background: #f4f4f4; padding: 16px; border-radius: 6px; overflow-x: auto; }
+    pre code { background: none; padding: 0; }
+    blockquote { border-left: 3px solid #ccc; margin: 0; padding: 0 16px; color: #555; }
+    .back { font-size: 0.9rem; margin-bottom: 32px; }
+    .back a { text-decoration: none; }
+    .meta { font-size: 0.85rem; color: #888; margin-top: 6px; margin-bottom: 32px; }
+    .tag { background: #eee; border-radius: 3px; padding: 2px 8px; margin-right: 4px; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="back"><a href="index.html">← Garden of Thoughts</a></div>
+  
+  <div class="meta">
+    <span>July 28, 2026</span>
+    <span class="tag">ai</span> <span class="tag">distillation</span> <span class="tag">llm</span> <span class="tag">anthropic</span> <span class="tag">deepseek</span>
+  </div>
+  <p><em>Garden of Thoughts | SherryAnalytics | July 28, 2026</em></p>
+<hr />
+<h1>The Cheap Way to Build an AI: Ask Someone Else's Model a Few Million Questions</h1>
+<p><strong>Sub-title:</strong> Why teaching is expensive and copying isn't.</p>
+<p>A few people asked me to explain "AI distillation" this week, so here's my attempt.</p>
+<h2>Teacher and student, minus the classroom</h2>
+<p>Strip away the jargon and distillation is a simple idea: take a model that already works well, ask it an enormous number of questions, save the answers — especially the reasoning it shows along the way — throw out the bad ones, and fine-tune a smaller model on what's left. The student never touches the teacher's weights. It just reads text, over HTTPS, like anyone else with an API key.</p>
+<p>This isn't hypothetical. In February 2026, Anthropic reported that roughly 24,000 fake accounts generated more than 16 million conversations with Claude over weeks to months, tracing back to DeepSeek, Moonshot, and MiniMax. Around the same time, Google disclosed that Gemini had fielded over 100,000 prompts from an operation trying to reconstruct its reasoning.</p>
+<h2>Teaching is the expensive part. Copying isn't.</h2>
+<p>Everything that makes the teacher good — years of RLHF, RLVR, expert labelers, sandboxed environments, oceans of compute spent on rollouts — is real money spent on real infrastructure. But all of that investment eventually has to leave the building as plain text, one API response at a time. The student doesn't need to redo any of it. It just needs to collect enough of those responses and fine-tune on them, and years of someone else's R&amp;D budget show up in a few weeks of someone else's training run.</p>
+<p>That asymmetry is exactly why distillation is such a sore subject for the labs footing the original bill: the moat is paid for in cash, and it can be copied for the price of electricity and a few GPUs.</p>
+<p><strong>Signoff:</strong> Distillation itself is an ordinary, well-established technique. The problem was never distilling — it's distilling without asking.</p>
+<hr />
+<p><em>This post was written, in whole or in part, with assistance from Claude.</em></p>
+<h2>Links</h2>
+<ul>
+<li><a href="https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks">Anthropic: Detecting and preventing distillation attacks</a></li>
+<li><a href="https://www.nbcnews.com/tech/security/google-gemini-hit-100000-prompts-cloning-attempt-rcna258657">NBC News: Google says attackers used 100,000+ prompts to try to clone AI chatbot Gemini</a></li>
+<li><a href="https://arxiv.org/abs/1503.02531">Hinton, Vinyals &amp; Dean, Distilling the Knowledge in a Neural Network (2015)</a></li>
+</ul>
+</body>
+</html>
